@@ -1,9 +1,4 @@
-import {
-  Box,
-  Flex,
-  HStack,
-  Button
-} from "@chakra-ui/react";
+import { Box, Flex, HStack, Button } from "@chakra-ui/react";
 import { ColorModeButton } from '@/components/ui/color-mode';
 
 import { NavLink } from "react-router-dom";
@@ -28,7 +23,7 @@ export default function Navbar() {
               <NavLink to="/stash">Stash List</NavLink>
             </Button>
             <Button asChild colorScheme="whiteAlpha" variant="ghost">
-              <NavLink to="/allTimeProductList">All Time Product List</NavLink>
+              <NavLink to="/historicalProductlist">Historical Product List</NavLink>
             </Button>
           </nav>
         </HStack>

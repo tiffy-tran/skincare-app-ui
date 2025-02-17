@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Homepage from './application-components/Homepage';
 import Calendar from './application-components/SkincareCalendar';
 import StashList from './application-components/StashList';
-import AllTimeProductList from './application-components/AllTimeProductList';
+import HistoricalProductList from './application-components/HistoricalProductList';
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
           <Route path="/" element={<Homepage />} />
           <Route path="/calendar" element={<Calendar />} />
           <Route path="/stash" element={<StashList />} />
-          <Route path="/allTimeProductList" element={<AllTimeProductList />} />
+          <Route path="/historicalProductList" element={<HistoricalProductList />} />
         </Routes>
       </Router>
     </>      

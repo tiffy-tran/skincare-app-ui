@@ -2,11 +2,11 @@ import { For, Text, SimpleGrid } from "@chakra-ui/react"
 import ProductInfoBox from "./ProductInfoBox";
 import { Category } from "@/types/types";
 
-export default function StashList() {
+export default function HistoricalProductList() {
     return (
       <>
         <Text textStyle="2xl">
-            what's in my stash:
+            Every product I've used since I started skincare: 
         </Text>
         <SimpleGrid minChildWidth="sm" gap="40px">
             <For each={data}>

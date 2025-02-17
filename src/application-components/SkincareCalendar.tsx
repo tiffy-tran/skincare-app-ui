@@ -1,4 +1,4 @@
-import styles from './app-styling.module.css'
+import styles from '../styles.module.css'
 
 import { DateSelectArg, EventClickArg, EventContentArg } from "@fullcalendar/core";
 import FullCalendar from '@fullcalendar/react'
