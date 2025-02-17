@@ -1,5 +1,5 @@
 import { Box, Image, VStack, Text, Link } from "@chakra-ui/react"
-import { ProductInfo } from "@/types/types";
+import { ProductInfo } from "@/types";
 
 interface Props {
     productInfo: ProductInfo

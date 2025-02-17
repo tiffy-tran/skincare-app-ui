@@ -1,6 +1,6 @@
 import { For, Text, SimpleGrid } from "@chakra-ui/react"
 import ProductInfoBox from "./ProductInfoBox";
-import { Category } from "@/types/types";
+import { Category } from "@/types";
 
 export default function Homepage() {
     return (<>

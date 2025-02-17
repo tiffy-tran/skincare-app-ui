@@ -1,10 +1,10 @@
-import Navbar from '@/application-components/Navbar';
+import Navbar from '@/components/application-components/Navbar';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import Homepage from './application-components/Homepage';
-import Calendar from './application-components/SkincareCalendar';
-import StashList from './application-components/StashList';
-import HistoricalProductList from './application-components/HistoricalProductList';
+import Homepage from './components/application-components/Homepage';
+import Calendar from './components/application-components/SkincareCalendar';
+import StashList from './components/application-components/StashList';
+import HistoricalProductList from './components/application-components/HistoricalProductList';
 
 function App() {
   return (
