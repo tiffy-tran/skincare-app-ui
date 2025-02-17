@@ -12,9 +12,9 @@ export interface ProductInfo {
 };
 
 export enum Category {
-    Sunscreen,
-    Serum,
-    Moisturizer,
-    Cleanser,
-    Toner
+    SUNSCREEN = "Sunscreen",
+    SERUM = "Serum",
+    MOISTURIZER = "Moisturizer",
+    CLEANSER = "Cleanser",
+    TONER = "Toner"
 };

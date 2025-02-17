@@ -22,7 +22,7 @@ export default function HistoricalProductList() {
 //TODO this is just sample data, figure out how to get this from endpoints
 const data = [
     {
-        category: Category.Sunscreen,
+        category: Category.SUNSCREEN,
         imageUrl: "https://image.globaloliveyoungshop.com/prdtImg/1866/cc655f3b-6dc5-430f-b0e0-ccdca8feb7b3.jpg?RS=1500x1500&AR=0&SF=webp&QT=80",
         imageAlt: "Beauty of Joseon Relief Sun : Rice + Probiotics 50mL",
         brand: "Beauty of Joseon",
@@ -36,7 +36,7 @@ const data = [
                     "\nIt perfectly protects the skin even when exposed to ultraviolet rays for a long time, and it can be used comfortably all year round by reducing unnecessary ingredients.",
     },
     {
-        category: Category.Sunscreen,
+        category: Category.SUNSCREEN,
         imageUrl: "https://image.globaloliveyoungshop.com/prdtImg/1866/cc655f3b-6dc5-430f-b0e0-ccdca8feb7b3.jpg?RS=1500x1500&AR=0&SF=webp&QT=80",
         imageAlt: "Beauty of Joseon Relief Sun : Rice + Probiotics 50mL",
         brand: "Beauty of Joseon",
@@ -50,7 +50,7 @@ const data = [
                         "\nIt perfectly protects the skin even when exposed to ultraviolet rays for a long time, and it can be used comfortably all year round by reducing unnecessary ingredients.",
     },
     {
-        category: Category.Sunscreen,
+        category: Category.SUNSCREEN,
         imageUrl: "https://image.globaloliveyoungshop.com/prdtImg/1866/cc655f3b-6dc5-430f-b0e0-ccdca8feb7b3.jpg?RS=1500x1500&AR=0&SF=webp&QT=80",
         imageAlt: "Beauty of Joseon Relief Sun : Rice + Probiotics 50mL",
         brand: "Beauty of Joseon",
@@ -64,7 +64,7 @@ const data = [
                         "\nIt perfectly protects the skin even when exposed to ultraviolet rays for a long time, and it can be used comfortably all year round by reducing unnecessary ingredients.",
     },
     {
-        category: Category.Sunscreen,
+        category: Category.SUNSCREEN,
         imageUrl: "https://image.globaloliveyoungshop.com/prdtImg/1866/cc655f3b-6dc5-430f-b0e0-ccdca8feb7b3.jpg?RS=1500x1500&AR=0&SF=webp&QT=80",
         imageAlt: "Beauty of Joseon Relief Sun : Rice + Probiotics 50mL",
         brand: "Beauty of Joseon",
@@ -78,7 +78,7 @@ const data = [
                     "\nIt perfectly protects the skin even when exposed to ultraviolet rays for a long time, and it can be used comfortably all year round by reducing unnecessary ingredients.",
     },
     {
-        category: Category.Sunscreen,
+        category: Category.SUNSCREEN,
         imageUrl: "https://image.globaloliveyoungshop.com/prdtImg/1866/cc655f3b-6dc5-430f-b0e0-ccdca8feb7b3.jpg?RS=1500x1500&AR=0&SF=webp&QT=80",
         imageAlt: "Beauty of Joseon Relief Sun : Rice + Probiotics 50mL",
         brand: "Beauty of Joseon",
@@ -92,7 +92,7 @@ const data = [
             "\nIt perfectly protects the skin even when exposed to ultraviolet rays for a long time, and it can be used comfortably all year round by reducing unnecessary ingredients.",
     },
     {
-        category: Category.Sunscreen,
+        category: Category.SUNSCREEN,
         imageUrl: "https://image.globaloliveyoungshop.com/prdtImg/1866/cc655f3b-6dc5-430f-b0e0-ccdca8feb7b3.jpg?RS=1500x1500&AR=0&SF=webp&QT=80",
         imageAlt: "Beauty of Joseon Relief Sun : Rice + Probiotics 50mL",
         brand: "Beauty of Joseon",
@@ -106,7 +106,7 @@ const data = [
         "\nIt perfectly protects the skin even when exposed to ultraviolet rays for a long time, and it can be used comfortably all year round by reducing unnecessary ingredients.",
     },
     {
-        category: Category.Sunscreen,
+        category: Category.SUNSCREEN,
         imageUrl: "https://image.globaloliveyoungshop.com/prdtImg/1866/cc655f3b-6dc5-430f-b0e0-ccdca8feb7b3.jpg?RS=1500x1500&AR=0&SF=webp&QT=80",
         imageAlt: "Beauty of Joseon Relief Sun : Rice + Probiotics 50mL",
         brand: "Beauty of Joseon",
@@ -120,7 +120,7 @@ const data = [
                         "\nIt perfectly protects the skin even when exposed to ultraviolet rays for a long time, and it can be used comfortably all year round by reducing unnecessary ingredients.",
     },
     {
-        category: Category.Sunscreen,
+        category: Category.SUNSCREEN,
         imageUrl: "https://image.globaloliveyoungshop.com/prdtImg/1866/cc655f3b-6dc5-430f-b0e0-ccdca8feb7b3.jpg?RS=1500x1500&AR=0&SF=webp&QT=80",
         imageAlt: "Beauty of Joseon Relief Sun : Rice + Probiotics 50mL",
         brand: "Beauty of Joseon",
