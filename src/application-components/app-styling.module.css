@@ -1,0 +1,9 @@
+.calendarFormat {
+  width: 80%;  /* Set calendar to 80% of the parent container */
+  margin-left: auto;  /* Automatically adjust left margin */
+  margin-right: auto;  /* Automatically adjust right margin */
+  padding-top: 20px;  /* Optional: add top padding for better spacing */
+  padding-bottom: 20px;  /* Optional: add bottom padding */
+  margin-top: 20px;  /* Optional: add top margin for spacing from other elements */
+}
+  
