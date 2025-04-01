@@ -1,22 +1,39 @@
-import { Text, SimpleGrid } from "@chakra-ui/react";
-import { useQuery } from "@tanstack/react-query"; // Import useQuery properly
-import api from "@/axios/setup";
+import { useState, useEffect } from 'react';  
+import { Text, SimpleGrid, VStack, Spinner } from "@chakra-ui/react";
 
 import ProductInfoBox from "./ProductInfoBox";
 import { ProductInfo } from "@/types";
 
-//TODO how to dynamically get the date?
-const fetchCurrentProducts = async (): Promise<ProductInfo[]> => {
-  const { data } = await api.get<ProductInfo[]>("/products?startDate=2025-02-20");
-  return data;
-};
 
 export default function Homepage() {
-  //TODO set up loading and error states
-  const { data: products } = useQuery<Product[]>({
-    queryKey: ["products"],
-    queryFn: fetchCurrentProducts,
-  });
+  const [currentProducts, setCurrentProducts] = useState<ProductInfo[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  //TODO need to pass in the date, or have isCurrent flag on all products?
+  //TODO how to dynamically get the date?
+  useEffect(() => {
+    const fetchCurrentProducts = async () => {
+      try {
+        const res = await fetch("http://localhost:3001/currrentProductList/");
+        const data = await res.json();
+        if (res.ok) {
+          setCurrentProducts(data);
+        } else {
+          //TODO handle error more gracefully
+          console.error("Failed to fetch current products:", res);
+          setCurrentProducts([]); // Reset state on error
+        }
+      } catch (error) {
+        console.error("Failed to fetch current products:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchCurrentProducts();
+    return () => {
+      setCurrentProducts([]);
+    };
+  }, []);
 
 
   return (
@@ -24,11 +41,19 @@ export default function Homepage() {
       <Text fontSize="2xl" fontWeight="bold">
         Current products:
       </Text>
-      <SimpleGrid minChildWidth="200px" spacing="40px">
-        {products?.map((product) => (
-          <ProductInfoBox key={product.id} data={product} />
-        ))}
-      </SimpleGrid>
+      { loading ? (
+        <VStack colorPalette="teal">
+          <Spinner size="xl" color="pink.500" />
+          <Text color="purple.800">Loading ❤️</Text>
+        </VStack>
+      ) : 
+      (
+        <SimpleGrid minChildWidth="200px">
+          {currentProducts?.map((product) => (
+            <ProductInfoBox key={product.id} productInfo={product} />
+          ))}
+        </SimpleGrid>
+      )}
     </>
   );
 }

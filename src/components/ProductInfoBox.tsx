@@ -18,7 +18,7 @@ export default function ProductInfoBox({productInfo}: Props) {
                         <Text color="fg">Category: {productInfo.category}</Text>
                         <Text color="fg">Price: {productInfo.price}</Text>
                         <Text color="fg">Country of Origin: {productInfo.countryOfOrigin}</Text>
-                        <Text color="fg">Decription: {productInfo.description}</Text>
+                        { (productInfo.description !== "") ? <Text color="fg">Description: {productInfo.description}</Text> : <></> }
                     </VStack>
                 </Box>
             </Box>

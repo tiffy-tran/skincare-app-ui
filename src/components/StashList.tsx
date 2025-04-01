@@ -1,66 +1,58 @@
-import { For, Text, SimpleGrid } from "@chakra-ui/react"
+import { useState, useEffect } from 'react'; 
+import { For, Text, SimpleGrid, VStack, Spinner } from "@chakra-ui/react"
+
 import ProductInfoBox from "./ProductInfoBox";
-import { Category } from "@/types";
+import { ProductInfo } from "@/types";
 
 export default function StashList() {
+  const [stashList, setStashList] = useState<ProductInfo[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchStashList = async () => {
+      try {
+        const res = await fetch("http://localhost:3001/stashList/");
+        const data = await res.json();
+        if (res.ok) {
+          setStashList(data);
+        } else {
+          //TODO handle error more gracefully
+          console.error("Failed to fetch stash list:", res);
+          setStashList([]); // Reset state on error
+        }
+      } catch (error) {
+        console.error("Failed to fetch stash list:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchStashList();
+    return () => {
+      setStashList([]);
+    };
+  }, []);
+
     return (
       <>
         <Text textStyle="2xl">
             what's in my stash:
         </Text>
-        <SimpleGrid minChildWidth="sm" gap="40px">
-            <For each={data}>
-            {(item, index) => (
-                <ProductInfoBox key={index} productInfo={item}/>
-            )}
-            </For>
-        </SimpleGrid>
+        { loading ? (
+          <VStack colorPalette="teal">
+            <Spinner size="xl" color="pink.500" />
+            <Text color="purple.800">Loading ❤️</Text>
+         </VStack>
+        ) : 
+        (
+          <SimpleGrid minChildWidth="sm" gap="40px">
+              <For each={stashList}>
+              {(item, index) => (
+                  <ProductInfoBox key={index} productInfo={item}/>
+              )}
+              </For>
+          </SimpleGrid>
+        )
+      }
       </>
     );
 }
-
-//TODO this is just sample data, figure out how to get this from endpoints
-const data = [
-    {
-        category: Category.SUNSCREEN,
-        imageUrl: "https://image.globaloliveyoungshop.com/prdtImg/1866/cc655f3b-6dc5-430f-b0e0-ccdca8feb7b3.jpg?RS=1500x1500&AR=0&SF=webp&QT=80",
-        imageAlt: "Beauty of Joseon Relief Sun : Rice + Probiotics 50mL",
-        brand: "Beauty of Joseon",
-        productName: "Relief Sun : Rice + Probiotics 50mL",
-        price: "$18",
-        volumeWeight: "50mL",
-        countryOfOrigin: "South Korea",
-        link: "https://global.oliveyoung.com/product/detail?prdtNo=GA220816046",
-        description: "A sunscreen that is gentle on the skin, this is a daily sunscreen that absorbs and blocks the energy of ultraviolet rays and adds moisture to the skin by adding soothing ingredients." +
-                        "\nWith a moisturizing cream formula without oiliness, it is absorbed without stickiness or cloudiness even after makeup." +
-                        "\nIt perfectly protects the skin even when exposed to ultraviolet rays for a long time, and it can be used comfortably all year round by reducing unnecessary ingredients.",
-    },
-    {
-        category: Category.SUNSCREEN,
-        imageUrl: "https://image.globaloliveyoungshop.com/prdtImg/1866/cc655f3b-6dc5-430f-b0e0-ccdca8feb7b3.jpg?RS=1500x1500&AR=0&SF=webp&QT=80",
-        imageAlt: "Beauty of Joseon Relief Sun : Rice + Probiotics 50mL",
-        brand: "Beauty of Joseon",
-        productName: "Relief Sun : Rice + Probiotics 50mL",
-        price: "$18",
-        volumeWeight: "50mL",
-        countryOfOrigin: "South Korea",
-        link: "https://global.oliveyoung.com/product/detail?prdtNo=GA220816046",
-        description: "A sunscreen that is gentle on the skin, this is a daily sunscreen that absorbs and blocks the energy of ultraviolet rays and adds moisture to the skin by adding soothing ingredients." +
-                        "\nWith a moisturizing cream formula without oiliness, it is absorbed without stickiness or cloudiness even after makeup." +
-                        "\nIt perfectly protects the skin even when exposed to ultraviolet rays for a long time, and it can be used comfortably all year round by reducing unnecessary ingredients.",
-    },
-    {
-        category: Category.SUNSCREEN,
-        imageUrl: "https://image.globaloliveyoungshop.com/prdtImg/1866/cc655f3b-6dc5-430f-b0e0-ccdca8feb7b3.jpg?RS=1500x1500&AR=0&SF=webp&QT=80",
-        imageAlt: "Beauty of Joseon Relief Sun : Rice + Probiotics 50mL",
-        brand: "Beauty of Joseon",
-        productName: "Relief Sun : Rice + Probiotics 50mL",
-        price: "$18",
-        volumeWeight: "50mL",
-        countryOfOrigin: "South Korea",
-        link: "https://global.oliveyoung.com/product/detail?prdtNo=GA220816046",
-        description: "A sunscreen that is gentle on the skin, this is a daily sunscreen that absorbs and blocks the energy of ultraviolet rays and adds moisture to the skin by adding soothing ingredients." +
-                        "\nWith a moisturizing cream formula without oiliness, it is absorbed without stickiness or cloudiness even after makeup." +
-                    "\nIt perfectly protects the skin even when exposed to ultraviolet rays for a long time, and it can be used comfortably all year round by reducing unnecessary ingredients.",
-    }
-]

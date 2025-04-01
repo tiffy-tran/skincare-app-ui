@@ -1,4 +1,5 @@
 export interface ProductInfo {
+    id: number,
     category: Category,
     imageUrl: string,
     imageAlt: string,
@@ -16,5 +17,9 @@ export enum Category {
     SERUM = "Serum",
     MOISTURIZER = "Moisturizer",
     CLEANSER = "Cleanser",
-    TONER = "Toner"
+    TONER = "Toner",
+    EYE_CREAM = "Eye Cream",
+    EXFOLIATOR = "Exfoliator",
+    LIP = "Lip",
+    HAIR = "Hair"
 };
