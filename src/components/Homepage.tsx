@@ -38,9 +38,10 @@ export default function Homepage() {
 
   return (
     <>
-      <Text fontSize="2xl" fontWeight="bold">
-        Current products:
+      <Text fontSize="4xl" fontWeight="bold" textAlign={"center"} padding={2}>
+        Current Product List
       </Text>
+
       { loading ? (
         <VStack colorPalette="teal">
           <Spinner size="xl" color="pink.500" />
@@ -48,7 +49,7 @@ export default function Homepage() {
         </VStack>
       ) : 
       (
-        <SimpleGrid minChildWidth="200px">
+        <SimpleGrid minChildWidth="sm" gap="40px" mx="auto" maxW="98%" my={6}>
           {currentProducts?.map((product) => (
             <ProductInfoBox key={product.id} productInfo={product} />
           ))}

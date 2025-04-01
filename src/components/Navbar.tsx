@@ -1,4 +1,4 @@
-import { Box, Flex, HStack, Button, LinkOverlay, Link } from "@chakra-ui/react";
+import { Box, Flex, HStack, Button } from "@chakra-ui/react";
 import { ColorModeButton } from '@/components/ui/color-mode';
 
 import { NavLink } from "react-router-dom";
@@ -6,26 +6,25 @@ import { NavLink } from "react-router-dom";
 export default function Navbar() {
   return (
     <>
-    <Box bg="blue.500" px={10}>
-      <Flex h={16} alignItems="center" justifyContent="space-between">
-        <HStack as="nav" display={{ base: "none", md: "flex" }}>
-          <nav>
-            <Button asChild colorScheme="whiteAlpha" variant="ghost">
-              <NavLink to="/" end>Homepage</NavLink>
+    <Box bg="transparent" borderWidth="5px" borderColor="transparent">
+      <Flex h={16} alignItems="center" justifyContent="space-between" px={4}>
+        <Box flex="1" />
+
+        <HStack spacing={4}>
+            <Button asChild variant="ghost" size="lg" _hover={{ bg: "pink.600", color: "white" }}>
+              <NavLink to="/" end>Current Product List</NavLink>
             </Button>
-            {/* TODO not adding calendar for now 
-            <Button asChild colorScheme="whiteAlpha" variant="ghost">
-              <NavLink to="/calendar" end>Calendar</NavLink>
-            </Button> */}
-            <Button asChild colorScheme="whiteAlpha" variant="ghost">
+            <Button asChild variant="ghost" size="lg" _hover={{ bg: "pink.600", color: "white" }}>
               <NavLink to="/stash">Stash List</NavLink>
             </Button>
-            <Button asChild colorScheme="whiteAlpha" variant="ghost">
+            <Button asChild variant="ghost" size="lg" _hover={{ bg: "pink.600", color: "white" }}>
               <NavLink to="/historicalProductlist">Historical Product List</NavLink>
             </Button>
-          </nav>
         </HStack>
-        <ColorModeButton />
+
+        <Box flex="1" display="flex" justifyContent="flex-end">
+          <ColorModeButton />
+        </Box>
       </Flex>
     </Box>
     </>

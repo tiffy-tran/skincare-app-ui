@@ -34,8 +34,8 @@ export default function StashList() {
 
     return (
       <>
-        <Text textStyle="2xl">
-            what's in my stash:
+        <Text fontSize="4xl" fontWeight="bold" textAlign={"center"} padding={2}>
+          What's in my stash?
         </Text>
         { loading ? (
           <VStack colorPalette="teal">
